@@ -45,3 +45,12 @@ We'll cover how to make specific assets -- stylesheets and Javascripts -- apply 
   - `vendor/assets`
   - `public/assets`
   - `lib/assets`
+
+### Screencasts
+- WDI8
+  - [Part 1](https://youtu.be/EP1RO_AX9kE)
+  - [Part 2](https://youtu.be/efQoUcQwyLY)
+  - [Part 3](https://youtu.be/4Kc5AwEc028)
+  - [Part 4](https://youtu.be/KElJ2nhYoOg)
+  - [Part 5](https://youtu.be/KqHFxIWGXIE)
+  - [Part 6](https://youtu.be/a21SsRQFKIo)
