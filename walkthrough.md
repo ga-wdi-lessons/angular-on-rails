@@ -222,6 +222,10 @@ We'll create a method that sends a PUT request to the database.
 
 We can tell Angular when to fire the update method using `data-ng-change`.
 
+#### Think: Oh no! The screenshot is cut off!
+
+Guess you'll have to figure out for yourself what goes in there. 
+
 ![Pic](images/ng-change.png)
 
 ### Third, enable it in the controller
