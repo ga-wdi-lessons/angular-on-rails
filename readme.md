@@ -1,91 +1,39 @@
 # Angular On Rails
 
 ## Learning objectives
-- Asset pipeline
-- Lib vs vendor vs app vs public
-- Respond to different formats
-- When and why Angular on Rails?
+- Give an example of when and why one might choose to put an Angular app on Rails.
+- Explain whether a given file should be placed in `app/assets`, `lib/assets`, `vendor/assets`, or `public/`.
+- Describe the difference between putting a static file in the asset pipeline versus in the `public` folder.
+- Cause a certain Rails controller action to respond differently to both HTML and JSON requests.
 
-Solution code:
+## Framing
 
-https://github.com/ga-wdi-exercises/inventory_tracker/tree/rails-solution
+### Rails vs Angular
 
-### Rails new
+So far we've seen Angular apps with no back-end framework, and Rails apps with no front-end framework. Now we're going to combine the two and look at a Rails app that runs Angular.
 
-`rails new . -d postgresql`
+This is different from an Angular app that uses someone else's server to access data. We're going to create an Angular app that is "served" from the same server that provides the data.
 
-### Put Inventory Tracker files in appropriate Rails locations
+### Why?
 
-```
-app.js        => app/assets/javascripts/products.js
-index.html    => app/views/products/index.html.erb
-data.js       => db/products_data.json
-angular.js    => vendor/assets/javascripts/angular.js
-bootstrap.css => vendor/assets/stylesheets/bootstrap.css
-```
+In a typical Rails app the user interacts with data through links, forms, and Javascript.
 
-`lib` vs `vendor` vs `app`: http://guides.rubyonrails.org/asset_pipeline.html#asset-organization
+![Typical Rails](images/request-normal.png)
 
-### Define an index route for products
+In an Angular-on-Rails app the user interacts with data just through Javascript.
 
-> Why aren't assets working?
+![Angular and Rails](images/request-angular.png)
 
-### Configure assets to be included in Products#index only
+This means they have a "single point of contact" with your data. This has two advantages: the user experience may have more consistency, and you have fewer moving parts to worry about.
 
-Don't want the Inventory Tracker Angular stuff to be loaded on every page -- just the Products#index page.
+The main disadvantage is it involves writing a lot more Javascript.
 
-Asset pipeline overview
+### Single-page on multi-page
 
-`config/initializers/assets.rb`
+The app we're creating today will be a single-page app that is part of a greater multi-page app -- like Google Maps is part of Google.
 
-stylesheets need property attribute to validate
+We'll cover how to make specific assets -- specific stylesheets and Javascripts -- apply to specific pages. Until now, every page in your Rails apps used the same stylesheet.
 
-Need to restart server
+## [Walkthrough: Inventory Tracker](walkthrough.md)
 
-### Add model, migrations, and seeds
-
-Only need to change 11 character to make `products_data.json` into a valid JSON file.
-
-File.read
-JSON.parse
-
-### Make the Products#index route render either JSON or HTML
-
-`respond_to` and `render json`
-
-### Make Angular load the products from the database
-
-> Need ngResource. In which `assets` folder should it go?
-
-> What needs to change in `products.js`?
-
-### Make the `product.cost` show up
-
-Received from Rails as a string.
-
-### Add destroy method
-
-> What needs to change in application controller?
-
-### Add create method
-
-Can still use strong params
-
-### Add update method
-
-Angular doesn't "know" *when* we want to save our changes to the database, and it doesn't know *how*. Can tell it with `data-ng-change` and `vm.update`
-
-### Deploy
-
-Need 12Factor
-
-```bash
-$ heroku create
-$ git push heroku master
-$ heroku rake db:migrate
-$ heroku rake db:seed
-$ rake secret
-# Copy the output
-$ heroku config:set SECRET_KEY_BASE=whatyoucopied
-$ heroku open
-```
+## References
