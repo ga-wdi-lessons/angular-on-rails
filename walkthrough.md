@@ -6,9 +6,15 @@ https://wdi-inventory-tracker.herokuapp.com/products
 
 ## Setup
 
-Clone down this repo:
+If you already have `inventory_tracker` on your computer, try:
 
-https://github.com/ga-wdi-exercises/inventory_tracker/tree/rails-solution
+```
+$ git pull origin angular-solution
+```
+
+Otherwise, clone down this repo:
+
+https://github.com/ga-wdi-exercises/inventory_tracker
 
 Checkout the `angular-solution` branch.
 
@@ -43,7 +49,9 @@ As for `app.js`, `angular.js`, and `bootstrap.css`, you may notice several other
 
 [More information here.](http://guides.rubyonrails.org/asset_pipeline.html#asset-organization)
 
-### Then, move these files to their appropriate locations:
+### Then, move these files to their appropriate locations
+
+Rename the files as described. If a folder doesn't already exist, you'll need to create it.
 
 ```
 app.js        => app/assets/javascripts/products.js
