@@ -9,14 +9,15 @@ https://wdi-inventory-tracker.herokuapp.com/products
 If you already have `inventory_tracker` on your computer, try:
 
 ```
-$ git pull origin angular-solution
+$ git fetch
+$ git pull origin rails-starter
 ```
 
 Otherwise, clone down this repo:
 
 https://github.com/ga-wdi-exercises/inventory_tracker
 
-Checkout the `angular-solution` branch.
+Checkout the `rails-starter` branch.
 
 Play with it for a minute to re-familiarize yourself.
 
@@ -54,11 +55,12 @@ As for `app.js`, `angular.js`, and `bootstrap.css`, you may notice several other
 Rename the files as described. If a folder doesn't already exist, you'll need to create it.
 
 ```
-app.js        => app/assets/javascripts/products.js
-index.html    => app/views/products/index.html.erb
-data.js       => db/products_data.json
-angular.js    => vendor/assets/javascripts/angular.js
-bootstrap.css => vendor/assets/stylesheets/bootstrap.css
+app.js              => app/assets/javascripts/products.js
+index.html          => app/views/products/index.html.erb
+data.js             => db/products_data.json
+angular.js          => vendor/assets/javascripts/angular.js
+angular-resource.js => vendor/assets/javascripts/angular-resource.js
+bootstrap.css       => vendor/assets/stylesheets/bootstrap.css
 ```
 
 ## Commit: Define an index route for products
@@ -96,7 +98,7 @@ We no longer want to do this.
 
 Using the same formats as in `application.js` and `application.css` (they're each a little different because they're different languages), you can "require" any file that's in any of the "assets" folders, including `vendor/assets`. This will cause it to be included in the precompilation.
 
-Make the `products.js` include Angular, and create a `products.css` that includes Bootstrap.
+Make the `products.js` include Angular and ngResource, and create a `products.css` that includes Bootstrap.
 
 ![Pic](images/fix-manifest-css-prod.png)
 
@@ -163,11 +165,7 @@ Take a look at `localhost:3000/products.json`!
 
 ## Commit: Make Angular load the products from the database
 
-### First, download and include [ngResource](https://raw.githubusercontent.com/ga-wdi-exercises/inventory_tracker/rails-solution/vendor/assets/javascripts/angular-resource.js)
-
-#### Think: Based on what you've learned about the different "assets" folders, in which `assets` folder should it go?
-
-### Second, update `products.js` to use ngResource
+That is: update `products.js` to use ngResource.
 
 ![Pic](images/add-ngresource.png)
 
@@ -232,7 +230,7 @@ We can tell Angular when to fire the update method using `data-ng-change`.
 
 #### Think: Oh no! The screenshot is cut off!
 
-Guess you'll have to figure out for yourself what goes in there. 
+Guess you'll have to figure out for yourself what goes in there.
 
 ![Pic](images/ng-change.png)
 
@@ -288,4 +286,3 @@ $ heroku config:set SECRET_KEY_BASE=whatyoucopied
 ```
 
 *Now* try again to view it in your browser.
-
