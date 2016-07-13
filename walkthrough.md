@@ -122,7 +122,7 @@ We no longer want to do this.
 To do this, remove only the `require_tree` line from:
 
 - `app/assets/stylesheets/application.css`
-- `app/assets/stylesheets/application.js`
+- `app/assets/javascripts/application.js`
 
 **Q**. If you had to guess, what does `require_tree do?`
 
