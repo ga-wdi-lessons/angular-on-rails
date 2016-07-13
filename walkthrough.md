@@ -229,6 +229,7 @@ So we now have the ability to serve data from our back-end, we need to focus on 
 **Q**. What library can we use to allow us to easily consume a RESTful api in Angular?
 </summary>
 <br>
+
 ```
 The ng-resource library, and specifically the $resource module
 ```
@@ -280,13 +281,16 @@ Next up on our to-do list is to make the User's actions on the front end update 
 
 ### First, let Angular destroy a Product
 
-![Pic](images/destroy-ng.png)
+- Use your factory to remove the correct Product
+- After the product has been removed, remove the product from `vm.products`
 
 #### Think: Why doesn't it work?
 
 ### Second, provide a controller method for destroying a Product
 
-![Pic](images/destroy-controller.png)
+- Define a controller action for Destroy
+- Find the product and destroy it
+- Render as a JSON a hash `{success: true}`
 
 #### Think: Why doesn't it work?
 
@@ -299,23 +303,25 @@ Next up on our to-do list is to make the User's actions on the front end update 
 > If you are interested in another more elegant work around, there is a way to turn the protection off depending on the request type / origin, etc. More info can be found [here](http://stackoverflow.com/questions/9362910/rails-warning-cant-verify-csrf-token-authenticity-for-json-devise-requests)
 
 
-## Commit: [Add create method](https://github.com/ga-wdi-exercises/inventory_tracker/commit/c741e281407ad91f3cdd2da4ad85213ba1b556ec)
+## Add Create method
 
 Continuing on to build out our app's Create functionality, we need to modify our Angular `create` method to make the appropriate call to our DB, and on the Rails side, we need to setup the back-end endpoint to handle the request.
 
 ### First, enable it in Angular
 
-![Pic](images/create-ng.png)
+- Use the factory to save our new product
+- Convert the returned response's cost to a float
+- Add the response to `vm.products`
 
 ### Second, enable it in the Controller
 
 We can still use strong params!
 
-**Q**. Why do we need to use strong params?
+- Define a Create method in the products controller
+- Define and use strong params to create a product
+- Render that product as json
 
-![Pic](images/create-controller.png)
-
-## Commit: [Add update method](https://github.com/ga-wdi-exercises/inventory_tracker/commit/4ad93ac4db13f436156668344d244562b68f1898)
+## Add Update method
 
 Angular doesn't "know" *when* we want to save our changes to the database, and it doesn't know *how*.
 
