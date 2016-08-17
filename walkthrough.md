@@ -77,8 +77,6 @@ data.js             => db/products_data.json
 angular.js          => vendor/assets/javascripts/angular.js
 angular-resource.js => vendor/assets/javascripts/angular-resource.js
 bootstrap.css       => vendor/assets/stylesheets/bootstrap.css
-
-pr.css       => vendor/assets/stylesheets/bootstrap.css
 ```
 
 ---
