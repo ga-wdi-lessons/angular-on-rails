@@ -31,7 +31,7 @@ The disadvantage is it involves writing a lot more Javascript.
 
 ### Single-page on multi-page
 
-The app we're creating today will be a single-page app that is part of a greater multi-page app -- like Google Maps is part of Google.
+The app we're creating today will be a single-page app that could fit into a greater multi-page app, not unlike Google Maps and Google.
 
 We'll cover how to make specific assets -- stylesheets and Javascripts -- apply to specific pages. Until now, every page in your Rails apps used the same stylesheet.
 

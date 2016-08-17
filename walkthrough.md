@@ -59,7 +59,7 @@ our assets.
 
 Each of the following directories contain an important role in the Rails Asset Pipeline:
 
-- `app/assets`: Code that is specific to certain models in your app: for example, the CSS and JS just for your `Product` model would go in `product.css` and `product.js`. Putting everything in `application.js` and `application.css` is technically a bad practice (but is just fine for small, simple apps).
+- `app/assets`: Code that is specific to certain models in your app: for example, the CSS and JS just for your `Product` model would go in `products.css` and `product.js`. Putting everything in `application.js` and `application.css` is technically a bad practice (but is just fine for small, simple apps).
 - `lib/assets`: Libraries that you write yourself. For instance, if you wrote a whole bunch of helper Javascript functions for your Rails app (code that you would use on multiple pages that isn't specific to one model) you might put it here.
 - `vendor/assets`: Third-party libraries, like jQuery, Angular, D3, Bootstrap, Foundation, and so on. "Vendor" means third-parties that provide you with code (not someone selling you stuff).
 - `public/`: Rarely used (directly). Where your assets go in production after being compiled. Anything in `public` is accessible by going to `localhost:3000/the_file.whatever`. For example, `public/404.html` is accessible at `localhost:3000/404.html` (so when you want to customize your error pages, you do it here). HTML in `public/` has access only to those assets that are also in `public`.
@@ -77,6 +77,8 @@ data.js             => db/products_data.json
 angular.js          => vendor/assets/javascripts/angular.js
 angular-resource.js => vendor/assets/javascripts/angular-resource.js
 bootstrap.css       => vendor/assets/stylesheets/bootstrap.css
+
+pr.css       => vendor/assets/stylesheets/bootstrap.css
 ```
 
 ---
@@ -126,7 +128,7 @@ To do this, remove only the `require_tree` line from:
 
 **Q**. If you had to guess, what does `require_tree do?`
 
-> **Note**: the Rails asset pipeline uses a special comment syntax to load asset files. If you get funny behavior, make sure you haven't deleted those comments in `app/assets/javascripts/application.js` and `app/assets/stylesheets/application.css`
+> **Note**: the Rails asset pipeline uses a special comment syntax to load asset files. If you get funny behavior, make sure you haven't deleted any other comments with `*=` or `//=` in `app/assets/javascripts/application.js` and `app/assets/stylesheets/application.css`
 
 #### Second, include the third-party libraries
 
@@ -152,7 +154,7 @@ Make the `products.js` include Angular and ngResource, and create a `products.cs
 
 #### Third, tell Rails to precompile the Product CSS and JS files
 
-Since we removed the `require_tree` line from our `application` level `css` and `js` files, we need to tell Rails to explictly precompile our custom static assets: `product.css` and `product.js`
+Since we removed the `require_tree` line from our `application` level `css` and `js` files, we need to tell Rails to explictly precompile our custom static assets: `products.css` and `product.js`
 
 Read the comment at the end of `config/initializers/assets.rb`.
 
